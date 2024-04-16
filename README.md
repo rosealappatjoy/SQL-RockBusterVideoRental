@@ -12,4 +12,11 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 - Do sales figures vary between geographic regions?
   ### Data and Tool
   The analysis utilized Rockbuster's relational database management system, alongside Postgre SQL. The dataset encompasses details regarding Rockbuster's film inventory, customers, payments, stores, staff, films, actors, rental history, and addresses.
-  [Rockbuster Data](
+### Project Deliverables
+The project culminates in a comprehensive analysis, backed by SQL queries, visualizations, and a narrative that translates complex data into actionable business insights.
+### Final Analysis
+- SQL queries addressing the management’s questions.
+- Visualizations in Tableau Public.
+- A narrative story combining data insights with business strategies.
+### Visualizations
+ Check out the [Tableau Public dashboard](https://public.tableau.com/app/profile/rose.alappat.joy/viz/RockbusterStealth-PrimaryCustomers/Sheet1?publish=yes) for interactive insights.
