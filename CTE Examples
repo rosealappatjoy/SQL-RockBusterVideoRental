@@ -33,7 +33,7 @@ WITH average_amount_cte(cusomer_id,first_name,last_name,city,country) AS
   SELECT AVG(total_amount_paid)
   FROM average_amount_cte
 
-# SQL CTE Query to find out how many of the top 5 customers above are based in each country.
+# SQL query to determine the distribution of the top 5 customers among the countries they are based in.
 
 WITH top_5_count_cte 
 (customer_id,first_name,last_name,city,country) AS
