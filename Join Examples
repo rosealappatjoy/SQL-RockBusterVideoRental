@@ -2,10 +2,49 @@
 
 SELECT D.country,
     COUNT(customer_id) AS customer_count
- FROM customer A
+FROM customer A
    INNER JOIN address B ON A.address_id = B.address_id
    INNER JOIN city C ON B.city_id = C.city_id
    INNER JOIN country D ON C.country_id = D.country_id
  GROUP BY country
  ORDER BY customer_count DESC
  LIMIT 10;
+
+# SQL Query to Identify the Top 10 Cities Located in the Top 10 Countries Previously Specified
+
+SELECT D.country,C.city,
+  COUNT(customer_id) AS customer_count
+  FROM customer A
+    INNER JOIN address B ON A.address_id = B.address_id
+    INNER JOIN city C ON B.city_id = C.city_id
+    INNER JOIN country D ON C.country_id = D.country_id
+  WHERE D.country IN (SELECT country D FROM customer A INNER JOIN address B ON A.address_id = B.address_id
+    INNER JOIN city C ON B.city_id = C.city_id
+    INNER JOIN country D ON C.country_id = D.country_id 
+GROUP BY country
+ORDER BY COUNT(customer_id) DESC
+LIMIT 10)
+GROUP BY C.city,  D.country
+ORDER BY customer_count DESC
+LIMIT 10;
+
+# SQL query to ascertain the top 5 clients among the top 10 cities mentioned earlier who have contributed the highest aggregate payments to Rockbuster.
+
+SELECT A.customer_id,A.first_name,A.last_name,D.country,C.city,
+  SUM (E.amount) AS total_amount_paid
+  FROM customer A
+    INNER JOIN address B ON A.address_id = B.address_id
+    INNER JOIN city C ON B.city_id = C.city_id
+    INNER JOIN country D ON C.country_id = D.country_id
+    INNER JOIN payment E ON A.customer_id =E.customer_id
+ WHERE C.city IN (SELECT city C FROM customer A INNER JOIN address B ON A.address_id = B.address_id
+    INNER JOIN city C ON B.city_id = C.city_id
+    INNER JOIN country D ON C.country_id = D.country_id 
+GROUP BY C.city
+ORDER BY COUNT(A.customer_id) DESC
+LIMIT 10)
+GROUP BY A.customer_id,A.first_name,A.last_name ,C.city,  D.country
+ORDER BY SUM(E.amount) DESC
+LIMIT 5;
+
+
