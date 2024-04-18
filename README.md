@@ -10,7 +10,7 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 - Which countries are Rockbuster customers based in?
 - Where are customers with a high lifetime value based?
 - Do sales figures vary between geographic regions?
-  ### Data and Tool
+### Data and Tool
   The analysis utilized Rockbuster's relational database management system, alongside Postgre SQL. The dataset encompasses details regarding Rockbuster's film inventory, customers, payments, stores, staff, films, actors, rental history, and addresses.
 ### Project Deliverables
 The project culminates in a comprehensive analysis, backed by SQL queries, visualizations, and a narrative that translates complex data into actionable business insights.
